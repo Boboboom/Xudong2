@@ -18,6 +18,11 @@
       <!-- <el-menu-item index="7" class="menu-item">ARTICLES</el-menu-item> -->
     </el-menu>
 
+    <div class="lang-box" @click="changeLang">
+      {{ currentLang }}
+      <img :src="langIcon" alt="">
+    </div>
+
     <el-dialog
       title="Contact Us"
       :visible.sync="showContact"
@@ -54,7 +59,28 @@ export default {
     return {
       menuIndex: "main",
       showContact: false,
+      currentLang: 'EN',
+      langIcon: require('@/assets/image/en.png')
     };
+  },
+  mounted() {
+    this.$i18n.locale = localStorage.getItem('lang') || 'en'
+    this.langIcon = require(`@/assets/image/${this.$i18n.locale}.png`)
+    
+    switch (this.$i18n.locale) {
+      case 'en':
+        this.currentLang = 'EN'
+        break;
+      case 'zh':
+        this.currentLang = 'ZH'
+        break;
+      case 'de':
+        this.currentLang = 'DE'
+        break;
+      default:
+        this.currentLang = 'EN'
+        break;
+    }
   },
   methods: {
     handleSelect(key, keyPath) {
@@ -66,6 +92,22 @@ export default {
         });
       }
     },
+    changeLang() {
+      if (this.currentLang == 'EN') {
+        // this.currentLang = 'ZH'
+        // this.langIcon = require('@/assets/image/zh.png')
+        localStorage.setItem('lang','zh')
+      } else if (this.currentLang == 'ZH') {  
+        // this.currentLang == 'DE'
+        // this.langIcon = require('@/assets/image/de.png')
+        localStorage.setItem('lang','de')
+      } else {
+        // this.currentLang == 'EN'
+        // this.langIcon = require('@/assets/image/en.png')
+        localStorage.setItem('lang','en')
+      }
+      this.$router.go(0)
+    }
   },
 };
 </script>
@@ -75,11 +117,14 @@ export default {
   position: fixed;
   z-index: 99;
   width: 100%;
+  background-color: #000000;
+  display: flex;
 }
 .header-menu {
   display: flex;
   justify-content: space-around;
   font-weight: 500;
+  width: calc(100% - 200px);
 }
 .menu-item {
   height: 110px;
@@ -94,5 +139,24 @@ export default {
 }
 .text span {
   font-weight: 700;
+}
+.lang-box {
+  width: 200px;
+  color: #ffffff;
+  font-size: 18px;
+  line-height: 110px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.lang-box:hover {
+  color: rgb(64, 158, 255);
+}
+.lang-box img {
+  height: 20px;
+  width: 30px;
+  margin-left: 15px;
+  border: 1px solid rgba(255, 255, 255, .3);
 }
 </style>

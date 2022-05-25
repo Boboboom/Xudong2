@@ -7,12 +7,16 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/main.css'
 
+//引入多语言
+import i18n from './i18n'
+
 Vue.use(ElementUI)
 Vue.config.productionTip = false
 
 /* eslint-disable no-new */
 new Vue({
     el: '#app',
+    i18n,
     router,
     components: { App },
     template: '<App/>'

@@ -5,6 +5,7 @@
       <el-row class="content">
         <!-- <el-col :span="10" :offset="7" class="text"> -->
         <h1>WEB SITE</h1>
+        <!-- <h2>{{ $t('test') }}</h2> -->
         <div class="tips">
           <p>LOREM IPSUM DOLOR SIT AMET <br />CONSECTETUR ADIPISICING ELIT</p>
           <el-button class="more">LEARN MORE</el-button>
@@ -15,33 +16,42 @@
     </div>
     <div class="mid">
       <div class="desc">
-        <h2>HEADING</h2>
+        <img src="../assets/image/main_1.jpeg" alt="">
+        <img src="../assets/image/main_2.jpeg" alt="">
+        <!-- <h2>HEADING</h2>
         <p>
           LOREM IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT SED DO EIUSMOD
           TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA UT ENIM AD MINIM
           VENIAM QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA
           COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR
-        </p>
+        </p> -->
       </div>
       <div class="box">
         <div class="box-item" v-for="(item, index) of descData" :key="index">
           <img :src="item.img" alt="" />
-          <p>{{ item.desc }}</p>
+          <!-- <p>{{ item.desc }}</p> -->
         </div>
       </div>
     </div>
     <div class="bottom">
       <div class="bottom-bg">
-        <div class="content">
-          <h2>HEADING</h2>
+      </div>
+      <div class="content">
+          <!-- <h2>HEADING</h2>
           <p>
             LOREM IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT SED DO
             EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA UT ENIM
             AD MINIM VENIAM QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT
             ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR
-          </p>
+          </p> -->
+          
+        <video
+          src="@/assets/image/video_3.mp4"
+          muted
+          loop
+          autoplay
+        ></video>
         </div>
-      </div>
     </div>
   </div>
 </template>
@@ -51,6 +61,7 @@ export default {
   name: "Home",
   data() {
     return {
+      language: 'zh',
       descData: [
         {
           img: require("@/assets/image/mid-1.png"),
@@ -78,6 +89,9 @@ export default {
   created() {
     this.$emit("switchHeader", true);
     this.$emit("switchFooter", true);
+  },
+  mounted() {
+    this.$i18n.locale = localStorage.getItem('lang') || 'en'
   },
 };
 </script>
@@ -132,9 +146,13 @@ export default {
   text-align: center;
 }
 .desc {
-  width: 45%;
+  /* width: 45%; */
   margin: 0 auto;
-  text-align: left;
+  /* text-align: left; */
+}
+.desc img {
+  width: 30%;
+  margin: 0 15px;
 }
 .desc h2 {
   font-size: 26px;
@@ -174,11 +192,14 @@ export default {
   background-repeat: no-repeat;
 }
 .bottom .content {
-  width: 45%;
+  /* width: 45%; */
   position: absolute;
-  left: 15%;
+  /* left: 15%; */
   top: 30%;
-  text-align: left;
+  /* text-align: left; */
+}
+.bottom .content video {
+  width: 50%;
 }
 .bottom .content h2 {
   font-size: 26px;
