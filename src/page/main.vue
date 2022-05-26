@@ -44,7 +44,6 @@
             AD MINIM VENIAM QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT
             ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR
           </p> -->
-          
         <video
           src="@/assets/image/video_3.mp4"
           muted
