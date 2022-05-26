@@ -1,7 +1,7 @@
 <template>
   <div class="footer">
     <el-container class="container">
-      <el-aside class="aside" width="40%">
+      <el-aside class="aside" width="30%">
         <div>
           <p>SEARCH</p>
           <el-input class="input"></el-input>
@@ -111,7 +111,8 @@ export default {
 }
 .item {
   width: 30%;
-  font-size: 18px;
+  font-size: 16px;
+  line-height: 30px;
   font-weight: 600;
 }
 </style>

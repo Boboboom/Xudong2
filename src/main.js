@@ -7,6 +7,9 @@ import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/main.css'
 
+import 'lib-flexible/flexible'
+import './components/rem'
+
 //引入多语言
 import i18n from './i18n'
 

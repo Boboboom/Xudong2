@@ -127,15 +127,15 @@ export default {
   width: calc(100% - 200px);
 }
 .menu-item {
-  height: 110px;
-  line-height: 110px;
-  font-size: 18px;
+  height: 140px !important;
+  line-height: 140px !important;
+  font-size: 20px;
 }
 .contact-box {
   text-align: left;
 }
 .contact-box .text {
-  font-size: 18px;
+  font-size: 20px;
 }
 .text span {
   font-weight: 700;
@@ -143,7 +143,7 @@ export default {
 .lang-box {
   width: 200px;
   color: #ffffff;
-  font-size: 18px;
+  font-size: 20px;
   line-height: 110px;
   cursor: pointer;
   display: flex;
@@ -154,8 +154,8 @@ export default {
   color: rgb(64, 158, 255);
 }
 .lang-box img {
-  height: 20px;
-  width: 30px;
+  height: 25px;
+  width: 35px;
   margin-left: 15px;
   border: 1px solid rgba(255, 255, 255, .3);
 }

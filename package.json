@@ -12,6 +12,8 @@
   },
   "dependencies": {
     "element-ui": "^2.15.8",
+    "lib-flexible": "^0.3.2",
+    "postcss-pxtorem": "^5.1.1",
     "vue": "^2.5.2",
     "vue-i18n": "^8.27.1",
     "vue-router": "^3.0.1"

@@ -4,10 +4,10 @@
       <div class="top-bg"></div>
       <el-row class="content">
         <!-- <el-col :span="10" :offset="7" class="text"> -->
-        <h1>WEB SITE</h1>
+        <h1>Dondio. LTD</h1>
         <!-- <h2>{{ $t('test') }}</h2> -->
         <div class="tips">
-          <p>LOREM IPSUM DOLOR SIT AMET <br />CONSECTETUR ADIPISICING ELIT</p>
+          <!-- <p>LOREM IPSUM DOLOR SIT AMET <br />CONSECTETUR ADIPISICING ELIT</p> -->
           <el-button class="more">LEARN MORE</el-button>
         </div>
         <!-- <el-col :span="10">test</el-col> -->
@@ -137,7 +137,7 @@ export default {
   white-space: pre;
 }
 .content .tips .more {
-  height: 78px;
+  height: 100px;
   font-size: 20px;
   padding-left: 60px;
   padding-right: 60px;
@@ -176,6 +176,7 @@ export default {
 }
 .box-item img {
   margin-bottom: 30px;
+  width: 75%;
 }
 .box-item p {
   line-height: 30px;
@@ -195,7 +196,7 @@ export default {
   /* width: 45%; */
   position: absolute;
   /* left: 15%; */
-  top: 30%;
+  top: 20%;
   /* text-align: left; */
 }
 .bottom .content video {
