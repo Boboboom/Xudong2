@@ -59,6 +59,7 @@ export default {
         console.log('success',res);
       }).catch(err=>{
         console.log('err',err);
+        console.log(123);
       });
     },
   },
