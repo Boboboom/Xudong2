@@ -236,7 +236,7 @@ export default {
   /* width: 45%; */
   position: absolute;
   /* left: 15%; */
-  top: 20%;
+  top: 30%;
   /* text-align: left; */
 }
 .bottom .content video {
