@@ -6,6 +6,7 @@ import router from './router'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/main.css'
+import axios from './axios/request'
 
 import 'lib-flexible/flexible'
 import './components/rem'
@@ -15,6 +16,7 @@ import i18n from './i18n'
 
 Vue.use(ElementUI)
 Vue.config.productionTip = false
+Vue.prototype.$axios = axios
 
 /* eslint-disable no-new */
 new Vue({

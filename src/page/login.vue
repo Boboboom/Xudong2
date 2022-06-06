@@ -11,7 +11,7 @@
           INCIDIDUNT UT LABORE ET<br />
           DOLORE MAGNA ALIQUA
         </p>
-      </el-col> 
+      </el-col>
       <!-- <el-col :span="8"></el-col> -->
       <el-col :span="4" :offset="10" class="login-box">
         <el-form label-position="left" :model="loginModel">
@@ -24,7 +24,9 @@
           <el-form-item label="PHONE NUMBER" class="login-item">
             <el-input v-model="loginModel.type"></el-input>
           </el-form-item>
-          <el-button class="login-btn">GET  FREE  SESSION</el-button>
+          <el-button class="login-btn" @click="login"
+            >GET FREE SESSION</el-button
+          >
         </el-form>
       </el-col>
     </el-row>
@@ -46,6 +48,19 @@ export default {
   created() {
     this.$emit("switchHeader", false);
     this.$emit("switchFooter", false);
+  },
+  methods: {
+    login() {
+      let param = {
+        email: "test@126.com",
+        password: "Shv0WxLaTj1sU7SgfZMJNg==",
+      };
+      this.$axios.post("sign-in",param).then(res=>{
+        console.log('success',res);
+      }).catch(err=>{
+        console.log('err',err);
+      });
+    },
   },
 };
 </script>

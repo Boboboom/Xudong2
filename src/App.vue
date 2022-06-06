@@ -21,13 +21,14 @@ export default {
       ifFooter: true,
     };
   },
+  created() {
+    console.log(this.$route);
+  },
   methods: {
     switchHeader: function (bool) {
-      console.log('header',bool);
       this.ifHeader = bool;
     },
     switchFooter: function (bool) {
-      console.log('footer',bool);
       this.ifFooter = bool;
     },
   },

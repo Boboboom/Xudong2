@@ -7,8 +7,8 @@
         <h1>Dondio. LTD</h1>
         <!-- <h2>{{ $t('test') }}</h2> -->
         <div class="tips">
-          <!-- <p>LOREM IPSUM DOLOR SIT AMET <br />CONSECTETUR ADIPISICING ELIT</p> -->
-          <el-button class="more">LEARN MORE</el-button>
+          <p>Find a new trading way <br />Build your new business life</p>
+          <el-button class="more" @click="showDialog">LEARN MORE</el-button>
         </div>
         <!-- <el-col :span="10">test</el-col> -->
         <!-- </el-col> -->
@@ -16,8 +16,8 @@
     </div>
     <div class="mid">
       <div class="desc">
-        <img src="../assets/image/main_1.jpeg" alt="">
-        <img src="../assets/image/main_2.jpeg" alt="">
+        <!-- <img src="../assets/image/main_1.jpeg" alt="">
+        <img src="../assets/image/main_2.jpeg" alt=""> -->
         <!-- <h2>HEADING</h2>
         <p>
           LOREM IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT SED DO EIUSMOD
@@ -29,19 +29,19 @@
       <div class="box">
         <div class="box-item" v-for="(item, index) of descData" :key="index">
           <img :src="item.img" alt="" />
-          <!-- <p>{{ item.desc }}</p> -->
+          <p v-html="item.desc"></p>
         </div>
       </div>
     </div>
     <div class="bottom">
       <div class="bottom-bg">
       </div>
-      <div class="content">
+      <div class="content"> 
           <!-- <h2>HEADING</h2>
           <p>
             LOREM IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT SED DO
             EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA UT ENIM
-            AD MINIM VENIAM QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT
+            AD MINIM VENIAM QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT1
             ALIQUIP EX EA COMMODO CONSEQUAT DUIS AUTE IRURE DOLOR
           </p> -->
         <video
@@ -52,6 +52,32 @@
         ></video>
         </div>
     </div>
+    <el-dialog
+      title="Contact Us"
+      :visible.sync="showContact"
+      width="40%"
+      top="25vh"
+      :modal-append-to-body="false"
+      class="contact-box"
+    >
+      <p class="text">
+        <span>Phone:</span>
+        +44 7859 015 873
+      </p>
+      <p class="text">
+        <span>Email:</span>
+        info@dondio.co.uk
+      </p>
+      <p class="text">
+        <span>Live Chat:</span>
+        When our live chat is active you see it in the lower right corner of the
+        screen.
+      </p>
+      <p class="text">
+        When you reach out via email we try to reply to you within two business
+        days. We speak the following languages Chinese, English and Dutch. 
+      </p>
+    </el-dialog>
   </div>
 </template>
 
@@ -61,26 +87,27 @@ export default {
   data() {
     return {
       language: 'zh',
+      showContact: false,
       descData: [
         {
           img: require("@/assets/image/mid-1.png"),
-          desc: "LOREM IPSUM DOLOR SIT AMET CONSECTETUR ADIPISICING ELIT SED DO EIUSMOD TEMPOR",
+          desc: "The way we work<br />We provide a high standards for our customers, and partners. We believed people are the heart of our business.",
         },
         {
           img: require("@/assets/image/mid-2.png"),
-          desc: "ADIPISICING ELIT SED DO EIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA UT ENIM AD MINIM VENIAM QUIS NOSTRUD",
+          desc: "Careers<br />We encourage multi-culture where people can maximize their potential. ",
         },
         {
           img: require("@/assets/image/mid-3.png"),
-          desc: "SED DO SIUSMOD TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA UT ENIM",
+          desc: "Markets we serve<br />We are mainly focusing on data asset solutions, and antique buying and selling.",
         },
         {
           img: require("@/assets/image/mid-4.png"),
-          desc: "TEMPOR INCIDIDUNT UT LABORE ET DOLORE MAGNA ALIQUA UT ENIM AD MINIM VENIAM QUIS NOSTRUD EXERCITATION ULLAMCO LABORIS NISI UT ALIQUIP EX EA",
+          desc: "Clients<br />We help our clients with data opportunities bring them forward-thinking.",
         },
         {
           img: require("@/assets/image/mid-5.png"),
-          desc: "UT LABORE ET DOLORE MAGNA ALIQUA UT ENIM AD MINIM VENIAM QUIS NOSTRUD",
+          desc: "Risk Management<br />Whether you are merchandising or selling, we will help our clients minimize uncertainty and manage risk with confidence.",
         },
       ],
     };
@@ -92,6 +119,11 @@ export default {
   mounted() {
     this.$i18n.locale = localStorage.getItem('lang') || 'en'
   },
+  methods: {
+    showDialog() {
+      this.showContact = !this.showContact
+    }
+  }
 };
 </script>
 
@@ -127,7 +159,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 20px;
+  font-size: 24px;
   letter-spacing: 5px;
 }
 .content .tips > p {
@@ -166,11 +198,13 @@ export default {
   width: 70%;
   margin: 0 auto;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
+  flex-wrap: wrap;
   margin-top: 100px;
 }
 .box-item {
   width: 17%;
+  /* max-width: 300px; */
   text-align: center;
 }
 .box-item img {
@@ -178,7 +212,14 @@ export default {
   width: 75%;
 }
 .box-item p {
-  line-height: 30px;
+  line-height: 45px;
+  font-size: 26px;
+}
+@media (max-width: 500px) {
+  .box-item {
+    width: 40%;
+    text-align: center;
+  }
 }
 .bottom {
   position: relative;

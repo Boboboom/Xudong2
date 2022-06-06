@@ -63,6 +63,9 @@ export default {
       langIcon: require('@/assets/image/en.png')
     };
   },
+  created() { 
+    this.menuIndex = this.$route.name;
+  },
   mounted() {
     this.$i18n.locale = localStorage.getItem('lang') || 'en'
     this.langIcon = require(`@/assets/image/${this.$i18n.locale}.png`)
@@ -130,15 +133,6 @@ export default {
   height: 140px !important;
   line-height: 140px !important;
   font-size: 20px;
-}
-.contact-box {
-  text-align: left;
-}
-.contact-box .text {
-  font-size: 20px;
-}
-.text span {
-  font-weight: 700;
 }
 .lang-box {
   width: 200px;

@@ -6,8 +6,8 @@
         <!-- <el-col :span="10" :offset="7" class="text"> -->
         <h1>ABOUT US</h1>
         <div class="tips">
-          <p>LOREM IPSUM DOLOR SIT AMET <br />CONSECTETUR ADIPISICING ELIT</p>
-          <el-button class="more">LEARN MORE</el-button>
+          <p>Find a new trading way <br />Build your new business life</p>
+          <el-button class="more" @click="showDialog">LEARN MORE</el-button>
         </div>
         <!-- <el-col :span="10">test</el-col> -->
         <!-- </el-col> -->
@@ -27,7 +27,7 @@
           muted
           loop
           autoplay
-          style="margin: 0 auto;width:80%"
+          style="margin: 0 auto; width: 80%"
         ></video>
         <!-- <div class="box-item" v-for="(item, index) of descData" :key="index">
           <img :src="item.img" alt="" />
@@ -45,9 +45,36 @@
             links between our customers with the commodities they require where
             and when they need them.
           </p>
+          <img src="../assets/image/about_1.jpeg" alt="">
         </div>
       </div>
     </div>
+    <el-dialog
+      title="Contact Us"
+      :visible.sync="showContact"
+      width="40%"
+      top="25vh"
+      :modal-append-to-body="false"
+      class="contact-box"
+    >
+      <p class="text">
+        <span>Phone:</span>
+        +44 7859 015 873
+      </p>
+      <p class="text">
+        <span>Email:</span>
+        info@dondio.co.uk
+      </p>
+      <p class="text">
+        <span>Live Chat:</span>
+        When our live chat is active you see it in the lower right corner of the
+        screen.
+      </p>
+      <p class="text">
+        When you reach out via email we try to reply to you within two business
+        days. We speak the following languages Chinese, English and Dutch. 
+      </p>
+    </el-dialog>
   </div>
 </template>
 
@@ -56,6 +83,7 @@ export default {
   name: "Home",
   data() {
     return {
+      showContact: false,
       descData: [
         {
           img: require("@/assets/image/mid-1.png"),
@@ -83,6 +111,11 @@ export default {
   created() {
     this.$emit("switchHeader", true);
     this.$emit("switchFooter", true);
+  },
+  methods: {
+    showDialog() {
+      this.showContact = !this.showContact;
+    },
   },
 };
 </script>
@@ -142,12 +175,12 @@ export default {
   text-align: left;
 }
 .desc h2 {
-  font-size: 26px;
+  font-size: 28px;
   font-weight: 600;
   margin-bottom: 60px;
 }
 .desc p {
-  font-size: 20px;
+  font-size: 24px;
   line-height: 50px;
 }
 .box {
@@ -179,11 +212,16 @@ export default {
   background-repeat: no-repeat;
 }
 .bottom .content {
-  width: 45%;
+  width: 80%;
   position: absolute;
   left: 15%;
-  top: 30%;
   text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.bottom .content img{ 
+  width: 50%;
 }
 .bottom .content h2 {
   font-size: 26px;
@@ -191,7 +229,8 @@ export default {
   margin-bottom: 60px;
 }
 .bottom .content p {
-  font-size: 20px;
+  width: 40%;
+  font-size: 24px;
   line-height: 50px;
 }
 </style>
