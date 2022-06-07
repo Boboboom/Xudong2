@@ -8,8 +8,12 @@ import 'element-ui/lib/theme-chalk/index.css'
 import './assets/css/main.css'
 import axios from './axios/request'
 
+//引入bootstrap
+import 'bootstrap/dist/css/bootstrap.min.css'
+
+//引入自适应
 import 'lib-flexible/flexible'
-import './components/rem'
+// import './components/rem'
 
 //引入多语言
 import i18n from './i18n'

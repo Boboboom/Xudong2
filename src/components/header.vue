@@ -1,5 +1,5 @@
 <template>
-  <div class="header">
+  <div class="container">
     <el-menu
       :default-active="menuIndex"
       class="header-menu"
@@ -11,16 +11,13 @@
     >
       <el-menu-item index="main" class="menu-item">MAIN PAGE</el-menu-item>
       <el-menu-item index="products" class="menu-item">PRODUCTS</el-menu-item>
-      <!-- <el-menu-item index="3" class="menu-item">DOWNLOADS</el-menu-item> -->
-      <!-- <el-menu-item index="4" class="menu-item">PORTFOLIO</el-menu-item> -->
       <el-menu-item index="about" class="menu-item">ABOUT US</el-menu-item>
       <el-menu-item index="contact" class="menu-item">CONTACT</el-menu-item>
-      <!-- <el-menu-item index="7" class="menu-item">ARTICLES</el-menu-item> -->
     </el-menu>
 
     <div class="lang-box" @click="changeLang">
-      {{ currentLang }}
-      <img :src="langIcon" alt="">
+      <span>{{ currentLang }}</span>
+      <img :src="langIcon" alt="" />
     </div>
 
     <el-dialog
@@ -59,29 +56,29 @@ export default {
     return {
       menuIndex: "main",
       showContact: false,
-      currentLang: 'EN',
-      langIcon: require('@/assets/image/en.png')
+      currentLang: "EN",
+      langIcon: require("@/assets/image/en.png"),
     };
   },
-  created() { 
+  created() {
     this.menuIndex = this.$route.name;
   },
   mounted() {
-    this.$i18n.locale = localStorage.getItem('lang') || 'en'
-    this.langIcon = require(`@/assets/image/${this.$i18n.locale}.png`)
-    
+    this.$i18n.locale = localStorage.getItem("lang") || "en";
+    this.langIcon = require(`@/assets/image/${this.$i18n.locale}.png`);
+
     switch (this.$i18n.locale) {
-      case 'en':
-        this.currentLang = 'EN'
+      case "en":
+        this.currentLang = "EN";
         break;
-      case 'zh':
-        this.currentLang = 'ZH'
+      case "zh":
+        this.currentLang = "ZH";
         break;
-      case 'de':
-        this.currentLang = 'DE'
+      case "de":
+        this.currentLang = "DE";
         break;
       default:
-        this.currentLang = 'EN'
+        this.currentLang = "EN";
         break;
     }
   },
@@ -96,27 +93,27 @@ export default {
       }
     },
     changeLang() {
-      if (this.currentLang == 'EN') {
+      if (this.currentLang == "EN") {
         // this.currentLang = 'ZH'
         // this.langIcon = require('@/assets/image/zh.png')
-        localStorage.setItem('lang','zh')
-      } else if (this.currentLang == 'ZH') {  
+        localStorage.setItem("lang", "zh");
+      } else if (this.currentLang == "ZH") {
         // this.currentLang == 'DE'
         // this.langIcon = require('@/assets/image/de.png')
-        localStorage.setItem('lang','de')
+        localStorage.setItem("lang", "de");
       } else {
         // this.currentLang == 'EN'
         // this.langIcon = require('@/assets/image/en.png')
-        localStorage.setItem('lang','en')
+        localStorage.setItem("lang", "en");
       }
-      this.$router.go(0)
-    }
+      this.$router.go(0);
+    },
   },
 };
 </script>
 
 <style scoped="scoped">
-.header {
+.container {
   position: fixed;
   z-index: 99;
   width: 100%;
@@ -127,18 +124,18 @@ export default {
   display: flex;
   justify-content: space-around;
   font-weight: 500;
-  width: calc(100% - 200px);
+  width: calc(100% - 2rem);
 }
 .menu-item {
-  height: 140px !important;
-  line-height: 140px !important;
-  font-size: 20px;
+  height: 1.8rem !important;
+  line-height: 1.8rem !important;
+  font-size: 0.4rem;
 }
 .lang-box {
-  width: 200px;
+  width: 2rem;
   color: #ffffff;
-  font-size: 20px;
-  line-height: 110px;
+  font-size: 0.4rem;
+  line-height: 1.8rem;
   cursor: pointer;
   display: flex;
   align-items: center;
@@ -148,9 +145,24 @@ export default {
   color: rgb(64, 158, 255);
 }
 .lang-box img {
-  height: 25px;
-  width: 35px;
-  margin-left: 15px;
-  border: 1px solid rgba(255, 255, 255, .3);
+  height: 0.5rem;
+  width: 0.6rem;
+  margin-left: 0.2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+@media (max-width: 718px) {
+  .header-menu {
+    width: calc(100% - 1.5rem);
+  }
+  .menu-item {
+    font-size: 0.1rem;
+  }
+  .lang-box {
+    font-size: 0.1rem;
+    width: 1.5rem;
+  }
+  .lang-box span {
+    display: none;
+  }
 }
 </style>

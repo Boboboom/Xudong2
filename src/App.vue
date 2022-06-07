@@ -21,9 +21,6 @@ export default {
       ifFooter: true,
     };
   },
-  created() {
-    console.log(this.$route);
-  },
   methods: {
     switchHeader: function (bool) {
       this.ifHeader = bool;

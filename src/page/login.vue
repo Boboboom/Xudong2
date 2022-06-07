@@ -1,32 +1,38 @@
 <template>
   <div class="login">
     <el-row class="row-box">
-      <el-col :span="8" class="content">
-        <h1>LADNING PAGE</h1>
-        <p>
-          LOREM IPSUM DOLOR SIT<br />
-          AMET CONSECTETUR<br />
-          ADIPISICING ELIT SED DO<br />
-          EIUSMOD TEMPOR<br />
-          INCIDIDUNT UT LABORE ET<br />
-          DOLORE MAGNA ALIQUA
-        </p>
+      <el-col :span="8" :offset="4" class="content">
+        <!-- <h1>LADNING PAGE</h1> -->
+        <p>Find a new trading way <br />Build your new business life</p>
       </el-col>
       <!-- <el-col :span="8"></el-col> -->
-      <el-col :span="4" :offset="10" class="login-box">
-        <el-form label-position="left" :model="loginModel">
-          <el-form-item label="YOUR NAME" class="login-item">
-            <el-input v-model="loginModel.name"></el-input>
+      <el-col :span="5" :offset="4" class="sign-box">
+        <el-form label-position="left" :model="loginModel" v-if="!ifSignup">
+          <el-form-item label="Email" class="sign-item">
+            <el-input v-model="loginModel.region" class="sign-input"></el-input>
           </el-form-item>
-          <el-form-item label="EMAIL ADDRESS" class="login-item">
-            <el-input v-model="loginModel.region"></el-input>
+          <el-form-item label="Password" class="sign-item">
+            <el-input v-model="loginModel.type" class="sign-input"></el-input>
           </el-form-item>
-          <el-form-item label="PHONE NUMBER" class="login-item">
-            <el-input v-model="loginModel.type"></el-input>
-          </el-form-item>
-          <el-button class="login-btn" @click="login"
-            >GET FREE SESSION</el-button
+          <el-button class="sign-btn" @click="login" type="primary"
+            >Sign in</el-button
           >
+          <el-button class="sign-btn" @click="showSignup">Sign up</el-button>
+        </el-form>
+        <el-form label-position="left" :model="loginModel" v-if="ifSignup">
+          <el-form-item label="NAME" class="sign-item">
+            <el-input v-model="signupData.name" class="sign-input"></el-input>
+          </el-form-item>
+          <el-form-item label="EMAIL" class="sign-item">
+            <el-input v-model="signupData.email" class="sign-input"></el-input>
+          </el-form-item>
+          <el-form-item label="PHONE" class="sign-item">
+            <el-input v-model="signupData.phone" class="sign-input"></el-input>
+          </el-form-item>
+          <el-button class="sign-btn" @click="getCode" type="primary"
+            >Free Vertify Code</el-button
+          >
+          <el-button class="sign-btn" @click="login">Sign up</el-button>
         </el-form>
       </el-col>
     </el-row>
@@ -38,10 +44,16 @@ export default {
   name: "Home",
   data() {
     return {
+      ifSignup: false,
       loginModel: {
         name: "",
         region: "",
         type: "",
+      },
+      signupData: {
+        name: "",
+        email: "",
+        phone: "",
       },
     };
   },
@@ -52,15 +64,36 @@ export default {
   methods: {
     login() {
       let param = {
-        email: "test@126.com",
+        email: "jip_peng@126.com",
         password: "Shv0WxLaTj1sU7SgfZMJNg==",
       };
-      this.$axios.post("sign-in",param).then(res=>{
-        console.log('success',res);
-      }).catch(err=>{
-        console.log('err',err);
-        console.log(123);
-      });
+      this.$axios
+        .post("sign-in", param)
+        .then((res) => {
+          console.log("success", res);
+        })
+        .catch((err) => {
+          console.log("err", err);
+          console.log(123);
+        });
+    },
+    getCode() {
+      // const email = this.signupData.email.replace(/\%40/, "@");
+      const email = encodeURI(this.signupData.email);
+      console.log(email);
+      this.$axios
+        .get("code", {
+          params: { email },
+        })
+        .then((res) => {
+          console.log("success", res);
+        })
+        .catch((err) => {
+          console.log("err", err);
+        });
+    },
+    showSignup() {
+      this.ifSignup = true;
     },
   },
 };
@@ -90,6 +123,10 @@ export default {
   align-items: flex-start;
   justify-content: center;
 }
+.content p {
+  font-size: 40px;
+  line-height: 80px;
+}
 h1 {
   font-size: 36px;
   line-height: 60px;
@@ -99,18 +136,24 @@ p {
   line-height: 46px;
   font-size: 18px;
 }
-.login-box {
+.sign-box {
   height: 80%;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
-.login-btn {
+.sign-btn {
   font-size: 18px;
   font-weight: 600;
   padding: 30px;
-  width: 100%;
-  margin-top: 80px;
+  width: 55%;
+  margin-top: 30px;
   white-space: pre;
+}
+.sign-input {
+  min-height: 60px;
+}
+.sign-item {
+  margin-bottom: 30px;
 }
 </style>

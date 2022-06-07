@@ -1,6 +1,6 @@
 <template>
-  <div class="footer">
-    <el-container class="container">
+  <div class="container">
+    <el-container class="box">
       <el-aside class="aside" width="30%">
         <div>
           <p>SEARCH</p>
@@ -78,14 +78,14 @@ export default {
 </script>
 
 <style scoped="scoped">
-.footer {
+.container {
   position: absolute;
   bottom: 0%;
-  height: 250px;
+  height: 3rem;
   z-index: 99;
   width: 100%;
 }
-.container {
+.box {
   height: 100%;
 }
 .aside {
@@ -99,9 +99,9 @@ export default {
   width: 50%;
 }
 .aside p {
-  margin-bottom: 40px;
+  margin-bottom: 0.4rem;
   margin-top: 0;
-  font-size: 22px;
+  font-size: 0.5rem;
   font-weight: 600;
 }
 .main {
@@ -111,8 +111,19 @@ export default {
 }
 .item {
   width: 30%;
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 0.3rem;
+  line-height: 0.3rem;
   font-weight: 600;
+}
+@media (max-width: 718px) {
+  .container {
+    height: 2rem;
+  }
+  .aside p {
+    font-size: 0.2rem;
+  }
+  .item {
+    font-size: 0.1rem;
+  }
 }
 </style>
