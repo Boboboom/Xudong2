@@ -155,10 +155,9 @@ export default {
     width: calc(100% - 1.5rem);
   }
   .menu-item {
-    font-size: 0.1rem;
+    font-size: 0.3rem;
   }
   .lang-box {
-    font-size: 0.1rem;
     width: 1.5rem;
   }
   .lang-box span {
