@@ -15,54 +15,58 @@ import Products from "../page/products.vue"
 import About from "../page/about.vue"
 
 const router = new Router({
-        routes: [{
-                path: '/login',
-                name: 'login',
-                component: () =>
-                    import ("@/page/login.vue")
-            },
-            {
-                path: '/main',
-                name: 'main',
-                component: Main,
-                meta: {
-                    auth: true //添加字段判断该页面是否需要登录
-                }
-            },
-            {
-                path: '/products',
-                name: 'products',
-                component: Products,
-                meta: {
-                    auth: true //添加字段判断该页面是否需要登录
-                }
-            },
-            {
-                path: '/about',
-                name: 'about',
-                component: About,
-                meta: {
-                    auth: true //添加字段判断该页面是否需要登录
-                }
+    routes: [{
+            path: '/',
+            name: 'login',
+            component: () =>
+                import ("@/page/login.vue")
+        }, {
+            path: '/signup',
+            name: 'signup',
+            component: () =>
+                import ("@/page/signup.vue")
+        },
+        {
+            path: '/main',
+            name: 'main',
+            component: Main,
+            meta: {
+                auth: true //添加字段判断该页面是否需要登录
             }
-        ]
-    })
-    // router.beforeEach((to, from, next) => {
-    //     let token = localStorage.getItem('ifLogin');
-    //     console.log(token);
-    //     if (to.meta.auth) {
-    //         if (token) {
-    //             next()
-    //         } else {
-    //             next({
-    //                 path: '/login',
-    //                 // query: { redirect: to.fullPath }
-    //             })
-    //         }
-    //     } else {
-    //         next()
-    //     }
-    // })
+        },
+        {
+            path: '/products',
+            name: 'products',
+            component: Products,
+            meta: {
+                auth: true //添加字段判断该页面是否需要登录
+            }
+        },
+        {
+            path: '/about',
+            name: 'about',
+            component: About,
+            meta: {
+                auth: true //添加字段判断该页面是否需要登录
+            }
+        }
+    ]
+})
+router.beforeEach((to, from, next) => {
+    let token = localStorage.getItem('ifLogin');
+    if (to.meta.auth) {
+        if (token) {
+            next()
+        } else {
+            next({
+                path: '/',
+                // query: { redirect: to.fullPath }
+            })
+        }
+    } else {
+        next()
+    }
+})
 
 export default router
 // export default new Router({

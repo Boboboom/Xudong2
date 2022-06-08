@@ -53,14 +53,13 @@ p {
 }
 
 .sign-item .el-form-item__label {
-    font-size: 24px;
-    margin-bottom: 10px;
+    font-size: .4rem;
 }
 
 .sign-input .el-input__inner {
-    height: 60px;
-    font-size: 24px;
-    line-height: 60px;
+    height: 100%;
+    font-size: .4rem;
+    /* line-height: 60px; */
     /* border-radius: 20px; */
 }
 
@@ -72,18 +71,25 @@ p {
     height: 0.6rem;
 }
 
-@media (max-width: 800px) {
+.el-form-item__error {
+    font-size: .3rem;
+}
+
+
+/* 公共部分 */
+
+@media (max-width: 768px) {
     .desc {
         width: 75% !important;
     }
     .bottom .content {
         display: block !important;
-        top: 30% !important;
+        /* top: 30% !important; */
     }
     .bottom .content p {
         width: 100% !important;
-        font-size: 12px !important;
-        line-height: 50px;
+        font-size: .4rem !important;
+        line-height: .5rem !important;
     }
     .bottom .content img {
         display: none;

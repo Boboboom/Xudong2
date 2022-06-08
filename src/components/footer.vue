@@ -8,7 +8,7 @@
         </div>
       </el-aside>
       <el-main class="main">
-        <el-link v-for="item of listData" :key="item.route" class="item" :underline="false">
+        <el-link v-for="item of listData" :key="item.name" class="item" :underline="false" @click="routerChange(item.route)">
           {{ item.name }}
         </el-link>
       </el-main>
@@ -28,52 +28,58 @@ export default {
         },
         {
           name: 'PORTFOLIO',
-          route: '1'
+          route: 'main'
         },
         {
           name: 'HOME',
-          route: '2'
+          route: 'main'
         },
         {
           name: 'PRODUCTS',
-          route: '3'
+          route: 'main'
         },
         {
           name: 'ABOUT US',
-          route: '4'
+          route: 'main'
         },
         {
           name: 'MY PROFILE',
-          route: '5'
+          route: 'main'
         },
         {
           name: 'DOWNLOADS',
-          route: '6'
+          route: 'main'
         },
         {
           name: 'CONTACT',
-          route: '7'
+          route: 'main'
         },
         {
           name: 'DASHBOARD',
-          route: '8'
+          route: 'main'
         },
         {
           name: 'NEWS',
-          route: '9'
+          route: 'main'
         },
         {
           name: 'ARTICLES',
-          route: '10'
+          route: 'main'
         },
         {
           name: 'LOG OUT',
-          route: '11'
+          route: 'main'
         },
       ]
     };
   },
-  methods: {},
+  methods: {
+    routerChange(route) {
+      this.$router.push({
+        path: route
+      })
+    }
+  },
 };
 </script>
 
@@ -115,7 +121,7 @@ export default {
   line-height: 0.3rem;
   font-weight: 600;
 }
-@media (max-width: 718px) {
+@media (max-width: 768px) {
   .container {
     height: 2rem;
   }
@@ -123,7 +129,7 @@ export default {
     font-size: 0.2rem;
   }
   .item {
-    font-size: 0.1rem;
+    font-size: 0.2rem;
   }
 }
 </style>

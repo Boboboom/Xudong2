@@ -5,8 +5,10 @@
       <el-row class="content">
         <h1>Dondio. LTD</h1>
         <div class="tips">
-          <p>Find a new trading way <br />Build your new business life</p>
-          <el-button class="more" @click="showDialog">LEARN MORE</el-button>
+          <p v-html="$t('public.slogan')"></p>
+          <el-button class="more" @click="showDialog">{{
+            $t("public.more")
+          }}</el-button>
         </div>
       </el-row>
     </div>
@@ -14,41 +16,44 @@
       <div class="box">
         <div class="box-item" v-for="(item, index) of descData" :key="index">
           <img :src="item.img" alt="" />
-          <strong>{{item.title}}</strong>
-          <p>{{item.desc}}</p>
+          <strong>{{ item.title }}</strong>
+          <p>{{ item.desc }}</p>
         </div>
       </div>
     </div>
     <div class="bottom">
       <div class="bottom-bg"></div>
       <div class="content">
-        <video src="@/assets/image/video_3.mp4" muted loop autoplay></video>
+        <video
+          src="@/assets/image/video_3.mp4"
+          muted
+          loop
+          :autoplay="autoplay"
+        ></video>
       </div>
     </div>
     <el-dialog
-      title="Contact Us"
+      :title="$t('header.contact')"
       :visible.sync="showContact"
-      width="80%"
+      :width="dialogWidth"
       top="25vh"
       :modal-append-to-body="false"
       class="contact-box"
     >
       <p class="text">
-        <span>Phone:</span>
+        <span>{{ $t("public.phone") }}:</span>
         +44 7859 015 873
       </p>
       <p class="text">
-        <span>Email:</span>
+        <span>{{ $t("public.email") }}:</span>
         info@dondio.co.uk
       </p>
       <p class="text">
-        <span>Live Chat:</span>
-        When our live chat is active you see it in the lower right corner of the
-        screen.
+        <span>{{ $t("public.liveChat") }}:</span>
+        {{ $t("public.liveChatTxt") }}
       </p>
       <p class="text">
-        When you reach out via email we try to reply to you within two business
-        days. We speak the following languages Chinese, English and Dutch. 
+        {{ $t("public.mailTxt") }}
       </p>
     </el-dialog>
   </div>
@@ -61,41 +66,23 @@ export default {
     return {
       language: "zh",
       showContact: false,
-      descData: [
-        {
-          img: require("@/assets/image/mid-1.png"),
-          title: 'The way we work',
-          desc: "We provide a high standards for our customers, and partners. We believed people are the heart of our business.",
-        },
-        {
-          img: require("@/assets/image/mid-2.png"),
-          title: 'Careers',
-          desc: "We encourage multi-culture where people can maximize their potential. ",
-        },
-        {
-          img: require("@/assets/image/mid-3.png"),
-          title: 'Markets we serve',
-          desc: "We are mainly focusing on data asset solutions, and antique buying and selling.",
-        },
-        {
-          img: require("@/assets/image/mid-4.png"),
-          title: 'Clients',
-          desc: "We help our clients with data opportunities bring them forward-thinking.",
-        },
-        {
-          img: require("@/assets/image/mid-5.png"),
-          title: 'Risk Management',
-          desc: "Whether you are merchandising or selling, we will help our clients minimize uncertainty and manage risk with confidence.",
-        },
-      ],
+      descData: this.$t("main.descData"),
+      dialogWidth: '45%',
+      autoplay: true
     };
   },
   created() {
     this.$emit("switchHeader", true);
     this.$emit("switchFooter", true);
+    // this.descData = this.$t("main.descData");
+    if (document.body.clientWidth < 800) {
+      this.dialogWidth = '80%'
+      this.autoplay = false
+    }
   },
   mounted() {
     this.$i18n.locale = localStorage.getItem("lang") || "en";
+    this.descData = this.$t("main.descData");
   },
   methods: {
     showDialog() {
@@ -139,6 +126,7 @@ export default {
   align-items: center;
   font-size: 0.4rem;
   letter-spacing: 0.1rem;
+  margin-top: 2rem;
 }
 .content .tips > p {
   line-height: 1rem;
@@ -146,9 +134,9 @@ export default {
   white-space: pre;
 }
 .content .tips .more {
-  height: 1.5rem;
+  height: 1rem;
   font-size: 0.3rem;
-  padding: 0 0.8rem;
+  padding: 0 0.6rem;
 }
 .mid {
   text-align: center;
@@ -208,7 +196,7 @@ export default {
   font-size: 18px;
   line-height: 50px;
 }
-@media (max-width: 718px) {
+@media (max-width: 768px) {
   .box-item {
     width: 40%;
     text-align: center;
@@ -216,14 +204,17 @@ export default {
   .content h1 {
     font-size: 0.8rem;
   }
-  .content .tips>p {
+  .content .tips {
+    margin-top: 0.6rem;
+  }
+  .content .tips > p {
     font-size: 0.2rem;
     letter-spacing: 1px;
     line-height: 0.6rem;
   }
   .content .tips .more {
-    height: .8rem;
-    padding: 0 .4rem;
+    height: 0.8rem;
+    padding: 0 0.4rem;
   }
 }
 </style>

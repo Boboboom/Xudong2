@@ -7,29 +7,54 @@
       <el-col :span="5" :xs="{span:20,offset:2}" :offset="4" class="sign-box">
         <el-form
           label-position="left"
-          :model="loginModel"
-          :rules="loginRule"
-          ref="loginModel"
+          :model="signupData"
+          :rules="signRule"
+          ref="signupData"
         >
           <el-form-item :label="$t('public.email')" class="sign-item" prop="email">
-            <el-input v-model="loginModel.email" class="sign-input"></el-input>
+            <el-input v-model="signupData.email" class="sign-input"></el-input>
           </el-form-item>
           <el-form-item :label="$t('public.psw')" class="sign-item" prop="password">
             <el-input
-              v-model="loginModel.password"
+              v-model="signupData.password"
               class="sign-input"
               show-password
             ></el-input>
           </el-form-item>
+          <el-form-item :label="$t('public.phone')" class="sign-item" prop="phone">
+            <el-input v-model="signupData.phone" class="sign-input"></el-input>
+          </el-form-item>
+          <el-form-item :label="$t('public.code')" class="sign-item" prop="code">
+            <el-input
+              v-model="signupData.code"
+              class="sign-input code_input"
+            ></el-input>
+            <el-button
+              class="code_btn"
+              @click="getCode"
+              type="primary"
+              v-loading.fullscreen.lock="loading"
+              >{{$t('public.get')}}</el-button
+            >
+            <el-button
+              class="code_btn"
+              @click="getCode"
+              type="info"
+              disabled
+              v-if="timeout"
+              >{{ time }}</el-button
+            >
+          </el-form-item>
           <el-button
             class="sign-btn"
-            @click="login"
+            @click="signup"
             type="primary"
             v-loading.fullscreen.lock="loading"
-            >{{$t('public.signin')}}</el-button
+            >{{$t('public.signup')}}</el-button
           >
           <p class="sign_up">
-            {{$t('public.noAccount')}}<strong @click="toggleForm">{{$t('public.signup')}}</strong>{{$t('public.now')}}
+            {{$t('public.alreadyAccount')}}
+            <strong @click="toggleForm">{{$t('public.signin')}}</strong>!
           </p>
         </el-form>
       </el-col>
@@ -41,17 +66,23 @@
 import { encrypt } from "../components/encryption.js";
 
 export default {
-  name: "Login",
+  name: "Sign",
   data() {
     return {
+      time: 60,
+      timeout: null,
       loading: false,
-      loginModel: {
+      signupData: {
         email: "",
         password: "",
+        phone: "",
+        code: "",
       },
-      loginRule: {
+      signRule: {
         email: [{ required: true, message: this.$t('warning.needEmail'), trigger: "blur" }],
         password: [{ required: true, message: this.$t('warning.needPsw'), trigger: "blur" }],
+        phone: [{ required: true, message: this.$t('warning.needPhone'), trigger: "blur" }],
+        code: [{ required: true, message: this.$t('warning.needCode'), trigger: "blur" }],
       },
     };
   },
@@ -60,22 +91,47 @@ export default {
     this.$emit("switchFooter", false);
   },
   methods: {
-    login() {
+    getCode() {
       this.loading = true;
-      let param = {
-        email: this.loginModel.email,
-        password: encrypt(this.loginModel.password).toString(),
+      const email = window.btoa(this.signupData.email);
+      this.$axios
+        .get("code", {
+          params: { email },
+        })
+        .then((res) => {
+          this.loading = false;
+          this.timeout = setInterval(() => {
+            this.time--;
+            if (this.time < 1) {
+              this.timeout = null;
+              this.time = 60;
+            }
+          }, 1000);
+        })
+        .catch((err) => {
+          this.loading = false;
+          if (!email) {
+            this.$message.error("no email");
+          } else {
+            this.$message.error(err);
+          }
+        });
+    },
+    signup() {
+      this.loading = true;
+      const param = {
+        email: this.signupData.email,
+        code: this.signupData.code,
+        mobile: this.signupData.phone,
+        password: encrypt(this.signupData.password).toString(),
       };
-      this.$refs.loginModel.validate((valid) => {
+      this.$refs.signupData.validate((valid) => {
         if (valid) {
           this.$axios
-            .post("sign-in", param)
+            .post("sign-up", param)
             .then((res) => {
               this.loading = false;
-              localStorage.setItem("ifLogin", true);
-              this.$router.push({
-                path: '/main'
-              })
+              this.$message({ message: "success", type: "success" });
             })
             .catch((err) => {
               this.loading = false;
@@ -88,24 +144,9 @@ export default {
         }
       });
     },
-    getCode() {
-      // const email = this.signupData.email.replace(/\%40/, "@");
-      const email = window.btoa(this.signupData.email);
-      console.log(email);
-      this.$axios
-        .get("code", {
-          params: { email },
-        })
-        .then((res) => {
-          console.log("success", res);
-        })
-        .catch((err) => {
-          console.log("err", err);
-        });
-    },
     toggleForm() {
       this.$router.push({
-        path: "/signup",
+        path: "/",
       });
     },
   },
@@ -157,16 +198,18 @@ p {
   white-space: pre;
 }
 .sign-input {
-  height: 1rem;
-}
-.code_input {
-  width: 70%;
+  height: 0.8rem;
 }
 .code_btn {
-  height: 1rem;
+  height: 0.8rem;
+  position: absolute;
+  width: 20%;
+  bottom: 1px;
+  right: 0;
 }
 .sign-item {
   margin-bottom: .4rem;
+  position: relative;
 }
 .sign_up {
   text-align: right;
@@ -188,6 +231,9 @@ p {
   }
   .sign-box {
     height: 70%;
+  }
+  .code_btn {
+    bottom: 3px;
   }
 }
 </style>

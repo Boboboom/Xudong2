@@ -1,8 +1,8 @@
 import axios from "axios";
 
 const instance = axios.create({
-    baseURL: 'http://112.74.20.204:8082/login/',
-    timeout: 2000
+    baseURL: 'http://35.77.87.80:8082/login/',
+    timeout: 20000
 })
 
 export default instance
