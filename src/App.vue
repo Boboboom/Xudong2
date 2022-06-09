@@ -21,6 +21,9 @@ export default {
       ifFooter: true,
     };
   },
+  // mounted() {
+  //   document.title = 'Dondio.LTD'
+  // },
   methods: {
     switchHeader: function (bool) {
       this.ifHeader = bool;
