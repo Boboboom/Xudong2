@@ -5,14 +5,28 @@ module.exports = {
             more: '更多',
             phone: '电话',
             email: '邮箱',
+            psw: '密码',
+            code: '验证码',
+            signin: '登录',
+            noAccount: '没有账号？',
+            signup: '注册',
+            now: ' ！',
+            get: '获取',
+            alreadyAccount: '已有账号？',
             liveChat: '实时聊天',
             liveChatTxt: '当我们的实时聊天激活时，你可以在屏幕的右下角看到它。 ',
-            mailTxt: '当你通过电子邮件联系我们时，我们会尽量在两个工作日内回复你。 支持汉语、英语和荷兰语。 '
+            mailTxt: '当你通过电子邮件联系我们时，我们会尽量在两个工作日内回复你。 支持汉语、英语和德语。 '
+        },
+        warning: {
+            needEmail: '请填写邮箱',
+            needPsw: '请填写密码',
+            needPhone: '请填写电话',
+            needCode: '请填写验证码'
         },
         header: {
             main: '主页',
             product: '产品',
-            about: '关于我',
+            about: '关于我们',
             contact: '联系我们',
             lang: '中'
         },
@@ -49,7 +63,7 @@ module.exports = {
             desc_2: '我们帮助小企业开展贸易。 我们支持初创企业负责任地、高效地、可靠地将实物商品从它们充足的地方转移到最需要它们的地方。 无论您是新手、制作人还是单飞，我们的目标、承诺和资源都能让您更接近您的市场。 '
         },
         about: {
-            title_1: 'WHAT WE DO',
+            title_1: '我们的业务',
             desc_1: '我们一直将我们的客户连接到跨境在线业务。 我们通过促进贸易来促进繁荣。 ',
             desc_2: '我们高效、可靠、负责地从欧洲到中国储存、采购和运输实物商品。 加强客户与他们需要的商品之间的渠道联系，无论何时何地。 '
         }
@@ -115,7 +129,7 @@ module.exports = {
         },
         product: {
             desc_1: 'Dondio .LTD is a startup technic trading company helping customers build up new cross-border retail channel and support logistics houses. We have built cross-border electronic commerce on service and performance. We focus on creating long-term value for our customers by prioritising their interests.',
-            desc_2: 'We help small business trade happen. We support start ups companies move physical commodities from where they are plentiful to where they are most needed – responsibly, efficiently and reliably. Whether you’re a beginner, a producter or solo, our target, commitment and resources can get you closer to your markets.'
+            desc_2: 'We help small business trade happen. We support start ups companies move physical commodities from where they are plentiful to where they are most needed – responsibly, efficiently and reliably. Whether you’re a beginner, a producter or solo, our target is: commitment and resources can help you further from the market .'
         },
         about: {
             title_1: 'WHAT WE DO',
@@ -124,12 +138,72 @@ module.exports = {
         },
     },
     de: {
+        public: {
+            slogan: 'Finden Sie einen neuen Handelsweg <br />Bauen Sie Ihr neues Geschäftsleben auf',
+            more: 'Mehr',
+            phone: 'Telefon',
+            email: 'Email',
+            psw: 'Passwort',
+            code: 'Code verifizieren',
+            signin: 'Anmelden',
+            noAccount: 'kein Konto?',
+            signup: 'Anmelden',
+            now: ' jetzt!',
+            get: 'Erhalten',
+            alreadyAccount: 'Sie haben bereits ein Konto?',
+            liveChat: 'Live Chat',
+            liveChatTxt: 'Wenn unser Live-Chat aktiv ist, sehen Sie ihn in der unteren rechten Ecke des Bildschirms.',
+            mailTxt: 'Wenn Sie sich per E-Mail melden, versuchen wir, Ihnen innerhalb von zwei Werktagen zu antworten.  Wir sprechen die folgenden Sprachen Chinesisch, Englisch und Niederländisch. '
+        },
+        warning: {
+            needEmail: 'Bitte geben Sie Ihre E-Mail-Adresse ein',
+            needPsw: 'Bitte geben Sie Ihr Passwort ein',
+            needPhone: 'Bitte geben Sie Ihr Telefon num ein',
+            needCode: 'Bitte geben Sie Ihren Verify-Code ein'
+        },
         header: {
-            main: 'MAIN PAGE',
-            product: 'PRODUCTS',
-            about: 'ABOUT',
-            contact: 'CONTACT',
+            main: 'Hauptsächlich',
+            product: 'Produkte',
+            about: 'Über uns',
+            contact: 'Kontaktieren Sie uns',
             lang: 'DE'
-        }
+        },
+        main: {
+            descData: [{
+                    img: require("@/assets/image/mid-1.png"),
+                    title: 'Wie wir arbeiten',
+                    desc: "Wir bieten einen hohen Standard für unsere Kunden und Partner.  Wir glaubten, dass Menschen das Herz unseres Geschäfts sind.",
+                },
+                {
+                    img: require("@/assets/image/mid-2.png"),
+                    title: 'Karrieren',
+                    desc: "Wir fördern eine Multikultur, in der Menschen ihr Potenzial maximieren können. ",
+                },
+                {
+                    img: require("@/assets/image/mid-3.png"),
+                    title: 'Märkte, die wir bedienen',
+                    desc: "Wir konzentrieren uns hauptsächlich auf Data-Asset-Lösungen und den Kauf und Verkauf von Antiquitäten.",
+                },
+                {
+                    img: require("@/assets/image/mid-4.png"),
+                    title: 'Klienten',
+                    desc: "Wir helfen unseren Kunden mit Datenmöglichkeiten, sie voranzubringen.",
+                },
+                {
+                    img: require("@/assets/image/mid-5.png"),
+                    title: 'Risikomanagement',
+                    desc: "Egal, ob Sie Merchandising betreiben oder verkaufen, wir helfen unseren Kunden, die Unsicherheit zu minimieren und Risiken mit Zuversicht zu managen.",
+                },
+            ],
+        },
+        product: {
+            desc_1: 'Dondio .LTD ist ein Startup-Technologie-Handelsunternehmen, das Kunden beim Aufbau neuer grenzüberschreitender Einzelhandelskanäle unterstützt und Logistikhäuser unterstützt.  Wir haben den grenzüberschreitenden elektronischen Geschäftsverkehr auf Service und Leistung aufgebaut.  Wir konzentrieren uns darauf, langfristigen Wert für unsere Kunden zu schaffen, indem wir ihre Interessen priorisieren.',
+            desc_2: 'Wir helfen kleinen Unternehmen beim Handel. Wir unterstützen Start-ups dabei, physische Güter von dort, wo sie reichlich vorhanden sind, dorthin zu transportieren, wo sie am dringendsten benötigt werden – verantwortungsvoll, effizient und zuverlässig. Egal, ob Sie Anfänger, Produktentwickler oder Einzelgänger sind, unser Ziel ist es, Sie mit Engagement und Ressourcen näher an Ihre Märkte zu bringen.'
+        },
+        about: {
+            title_1: 'WAS WIR TUN',
+            desc_1: 'Wir haben unsere Kunden mit dem grenzüberschreitenden Online-Geschäft verbunden.  Wir steigern den Wohlstand, indem wir den Handel fördern.',
+            desc_2: 'Wir lagern, beschaffen und liefern physische Rohstoffe effizient, zuverlässig und verantwortungsbewusst vom Euro nach China.  Stärkung der Kanalverbindungen zwischen unseren Kunden und den Rohstoffen, die sie benötigen, wo und wann sie sie benötigen.'
+        },
     }
 }

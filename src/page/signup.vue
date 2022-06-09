@@ -54,7 +54,7 @@
           >
           <p class="sign_up">
             {{$t('public.alreadyAccount')}}
-            <strong @click="toggleForm">{{$t('public.signin')}}</strong>!
+            <strong @click="toggleForm">{{$t('public.signin')}}</strong> !
           </p>
         </el-form>
       </el-col>

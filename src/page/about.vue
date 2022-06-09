@@ -3,7 +3,7 @@
     <div class="top">
       <div class="top-bg"></div>
       <el-row class="content">
-        <h1>ABOUT US</h1>
+        <h1>{{$t('header.about')}}</h1>
         <div class="tips">
           <p v-html="$t('public.slogan')"></p>
           <el-button class="more" @click="showDialog">{{
