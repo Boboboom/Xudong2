@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <el-menu
-      :default-active="menuIndex"
+      :default-active="routeName || menuIndex"
       class="header-menu"
       mode="horizontal"
       background-color="#000000"
@@ -73,13 +73,13 @@ export default {
     };
   },
   created() {
-    this.menuIndex = this.$route.name;
+    // this.menuIndex = this.$route.name;
     if (document.body.clientWidth < 800) {
       this.dialogWidth = "80%";
     }
   },
   mounted() {
-    this.menuIndex = this.$route.name;
+    // this.menuIndex = this.$route.name;
     this.$i18n.locale = localStorage.getItem("lang") || "en";
     this.langIcon = require(`@/assets/image/${this.$i18n.locale}.png`);
 
@@ -96,6 +96,11 @@ export default {
       default:
         this.currentLang = "EN";
         break;
+    }
+  },
+  computed: {
+    routeName() {
+      return this.$route.name;
     }
   },
   methods: {

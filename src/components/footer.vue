@@ -21,57 +21,11 @@ export default {
   name: "Footer",
   data() {
     return {
-      listData: [
-        {
-          name: 'MAIN PAGE',
-          route: 'main'
-        },
-        {
-          name: 'PORTFOLIO',
-          route: 'main'
-        },
-        {
-          name: 'HOME',
-          route: 'main'
-        },
-        {
-          name: 'PRODUCTS',
-          route: 'main'
-        },
-        {
-          name: 'ABOUT US',
-          route: 'main'
-        },
-        {
-          name: 'MY PROFILE',
-          route: 'main'
-        },
-        {
-          name: 'DOWNLOADS',
-          route: 'main'
-        },
-        {
-          name: 'CONTACT',
-          route: 'main'
-        },
-        {
-          name: 'DASHBOARD',
-          route: 'main'
-        },
-        {
-          name: 'NEWS',
-          route: 'main'
-        },
-        {
-          name: 'ARTICLES',
-          route: 'main'
-        },
-        {
-          name: 'LOG OUT',
-          route: 'main'
-        },
-      ]
+      listData: this.$t('footer.list')
     };
+  },
+  mounted() {
+    this.listData = this.$t('footer.list')
   },
   methods: {
     routerChange(route) {

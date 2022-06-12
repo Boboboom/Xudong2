@@ -30,6 +30,57 @@ module.exports = {
             contact: '联系我们',
             lang: '中'
         },
+        footer: {
+            list: [{
+                    name: '主页',
+                    route: 'main'
+                },
+                {
+                    name: '作品集',
+                    route: 'products'
+                },
+                {
+                    name: '首页',
+                    route: 'main'
+                },
+                {
+                    name: '产品',
+                    route: 'products'
+                },
+                {
+                    name: '关于我们',
+                    route: 'about'
+                },
+                {
+                    name: '资料',
+                    route: 'products'
+                },
+                {
+                    name: '下载',
+                    route: 'main'
+                },
+                {
+                    name: '联系我们',
+                    route: 'main'
+                },
+                {
+                    name: '操作界面',
+                    route: 'main'
+                },
+                {
+                    name: '新闻',
+                    route: 'main'
+                },
+                {
+                    name: '文章',
+                    route: 'main'
+                },
+                {
+                    name: '登出',
+                    route: '/'
+                },
+            ]
+        },
         main: {
             descData: [{
                     img: require("@/assets/image/mid-1.png"),
@@ -59,8 +110,8 @@ module.exports = {
             ],
         },
         product: {
-            desc_1: 'Dondio .LTD是一家初创的技术贸易公司，帮助客户建立新的跨境零售渠道和支持物流公司。 以服务和性能为基础构建跨境电子商务。 我们专注于为客户创造长期价值，优先考虑客户的利益。',
-            desc_2: '我们帮助小企业开展贸易。 我们支持初创企业负责任地、高效地、可靠地将实物商品从它们充足的地方转移到最需要它们的地方。 无论您是新手、制作人还是单飞，我们的目标、承诺和资源都能让您更接近您的市场。 '
+            desc_1: 'Dondio.LTD是一家初创的技术贸易公司，帮助客户建立新的跨境零售渠道和支持物流公司。 以服务和性能为基础构建跨境电子商务。 我们专注于为客户创造长期价值，优先考虑客户的利益。',
+            desc_2: '我们帮助小企业开展贸易。 我们支持初创企业负责任地、高效地、可靠地将实物商品从它们充足的地方转移到最需要它们的地方。 无论您是新手、生产商还是个人贸易，我们的目标、承诺和资源都能让您更接近您的市场。 '
         },
         about: {
             title_1: '我们的业务',
@@ -99,6 +150,57 @@ module.exports = {
             contact: 'Contact Us',
             lang: 'EN'
         },
+        footer: {
+            list: [{
+                    name: 'Main',
+                    route: 'main'
+                },
+                {
+                    name: 'Portfolio',
+                    route: 'products'
+                },
+                {
+                    name: 'Home',
+                    route: 'main'
+                },
+                {
+                    name: 'Products',
+                    route: 'products'
+                },
+                {
+                    name: 'About Us',
+                    route: 'about'
+                },
+                {
+                    name: 'My Profile',
+                    route: 'products'
+                },
+                {
+                    name: 'DownLoads',
+                    route: 'main'
+                },
+                {
+                    name: 'Contact',
+                    route: 'main'
+                },
+                {
+                    name: 'Dashboard',
+                    route: 'main'
+                },
+                {
+                    name: 'News',
+                    route: 'main'
+                },
+                {
+                    name: 'Articles',
+                    route: 'main'
+                },
+                {
+                    name: 'Log out',
+                    route: '/'
+                },
+            ]
+        },
         main: {
             descData: [{
                     img: require("@/assets/image/mid-1.png"),
@@ -128,8 +230,8 @@ module.exports = {
             ],
         },
         product: {
-            desc_1: 'Dondio .LTD is a startup technic trading company helping customers build up new cross-border retail channel and support logistics houses. We have built cross-border electronic commerce on service and performance. We focus on creating long-term value for our customers by prioritising their interests.',
-            desc_2: 'We help small business trade happen. We support start ups companies move physical commodities from where they are plentiful to where they are most needed – responsibly, efficiently and reliably. Whether you’re a beginner, a producter or solo, our target is: commitment and resources can help you further from the market .'
+            desc_1: 'Dondio.LTD is a startup technic trading company helping customers build up new cross-border retail channel and support logistics houses. We have built cross-border electronic commerce on service and performance. We focus on creating long-term value for our customers by prioritising their interests.',
+            desc_2: 'We help small business trade happen. We support start ups companies move physical commodities from where they are plentiful to where they are most needed – responsibly, efficiently and reliably. Whether you’re a beginner, a producter or solo, our target, commitment and resources, can get you closer to your markets.'
         },
         about: {
             title_1: 'WHAT WE DO',
@@ -168,6 +270,57 @@ module.exports = {
             contact: 'Kontaktieren Sie uns',
             lang: 'DE'
         },
+        footer: {
+            list: [{
+                    name: 'Hauptseite',
+                    route: 'main'
+                },
+                {
+                    name: 'Portefeuille',
+                    route: 'products'
+                },
+                {
+                    name: 'Homepage',
+                    route: 'main'
+                },
+                {
+                    name: 'Produkte',
+                    route: 'products'
+                },
+                {
+                    name: 'Über uns',
+                    route: 'about'
+                },
+                {
+                    name: 'Mein Profil',
+                    route: 'products'
+                },
+                {
+                    name: 'Downloads',
+                    route: 'main'
+                },
+                {
+                    name: 'Kontakt',
+                    route: 'main'
+                },
+                {
+                    name: 'Instrumententafel',
+                    route: 'main'
+                },
+                {
+                    name: 'Nachrichten',
+                    route: 'main'
+                },
+                {
+                    name: 'Artikel',
+                    route: 'main'
+                },
+                {
+                    name: 'Ausloggen',
+                    route: '/'
+                },
+            ]
+        },
         main: {
             descData: [{
                     img: require("@/assets/image/mid-1.png"),
@@ -197,7 +350,7 @@ module.exports = {
             ],
         },
         product: {
-            desc_1: 'Dondio .LTD ist ein Startup-Technologie-Handelsunternehmen, das Kunden beim Aufbau neuer grenzüberschreitender Einzelhandelskanäle unterstützt und Logistikhäuser unterstützt.  Wir haben den grenzüberschreitenden elektronischen Geschäftsverkehr auf Service und Leistung aufgebaut.  Wir konzentrieren uns darauf, langfristigen Wert für unsere Kunden zu schaffen, indem wir ihre Interessen priorisieren.',
+            desc_1: 'Dondio.LTD ist ein Startup-Technologie-Handelsunternehmen, das Kunden beim Aufbau neuer grenzüberschreitender Einzelhandelskanäle unterstützt und Logistikhäuser unterstützt.  Wir haben den grenzüberschreitenden elektronischen Geschäftsverkehr auf Service und Leistung aufgebaut.  Wir konzentrieren uns darauf, langfristigen Wert für unsere Kunden zu schaffen, indem wir ihre Interessen priorisieren.',
             desc_2: 'Wir helfen kleinen Unternehmen beim Handel. Wir unterstützen Start-ups dabei, physische Güter von dort, wo sie reichlich vorhanden sind, dorthin zu transportieren, wo sie am dringendsten benötigt werden – verantwortungsvoll, effizient und zuverlässig. Egal, ob Sie Anfänger, Produktentwickler oder Einzelgänger sind, unser Ziel ist es, Sie mit Engagement und Ressourcen näher an Ihre Märkte zu bringen.'
         },
         about: {
